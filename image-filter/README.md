@@ -1,4 +1,5 @@
 # bmp image filter
-a quick rewrite of a (very small) class project in go  
+A quick rewrite of a (very small) class project in go  
+Uses unsafe pointers...
 
 **Usage:** `bmpfilter: [image] [-gt]`
