@@ -1,11 +1,11 @@
 package sorts
 
 // I wanted to make this generic over any `comparable` type but
-// doing so isn't quite so easy in go atm
+// doing so isn't quite so easy in go atm (plus I'm dumb)
 
 type Sort struct {
-	capacity int
-	Data []int
+	capacity    int
+	Data        []int
 	Comparisons int
 }
 

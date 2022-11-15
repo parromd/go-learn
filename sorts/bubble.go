@@ -1,9 +1,8 @@
 package sorts
 
 import (
-	"time"
 	"reflect"
-	"fmt"
+	"time"
 )
 
 func (s *Sort) BubbleSort() (int, time.Duration) {
@@ -17,18 +16,17 @@ func (s *Sort) BubbleSort() (int, time.Duration) {
 	for swapped {
 		swapped = false
 		for idx, val := range data {
-			if idx < len(data) - 1 {
-				if val > data[idx + 1] {
-					swap(idx, idx + 1)
+			if idx < len(data)-1 {
+				if val > data[idx+1] {
+					swap(idx, idx+1)
 					swapped = true
 				}
 				comparisons++
 			}
 		}
 	}
-	elapsed := time.Now().Sub(start)
+	elapsed := time.Since(start)
 
-	fmt.Println(data)
 	s.Comparisons = comparisons
 	return comparisons, elapsed
 }

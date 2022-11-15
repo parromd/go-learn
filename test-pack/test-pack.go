@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"time"
-	"strconv"
 	"os"
+	"strconv"
+	"time"
 
 	"go-go-go/sorts"
 )
@@ -18,18 +18,21 @@ func main() {
 	for i := 0; i < size; i++ {
 		unsorted[i] = srand.Intn(size)
 	}
-	fmt.Println(unsorted)
+	// fmt.Println(unsorted)
 	sorter := sorts.New(size)
 	sorter.Set(unsorted)
+	format := "%s: %d ms, doing %d comparisons\n"
 
 	// Do sorts
 	bubble_comp, bubble_time := sorter.BubbleSort()
-	fmt.Printf("Bubble sort: %d ns, doing %d comparisons\n", bubble_time.Nanoseconds(), bubble_comp)
+	fmt.Printf(format, "Bubble", bubble_time.Milliseconds(), bubble_comp)
 
 	insert_comp, insert_time := sorter.InsertionSort()
-	fmt.Printf("Insertion sort: %d ns, doing %d comparisons\n", insert_time.Nanoseconds(), insert_comp)
+	fmt.Printf(format, "Insertion", insert_time.Milliseconds(), insert_comp)
 
 	select_comp, select_time := sorter.SelectionSort()
-	fmt.Printf("Selection sort: %d ns, doing %d comparisons\n", select_time.Nanoseconds(), select_comp)
+	fmt.Printf(format, "Selection", select_time.Milliseconds(), select_comp)
 
+	merge_comp, merge_time := sorter.MergeSort()
+	fmt.Printf(format, "Merge", merge_time.Milliseconds(), merge_comp)
 }

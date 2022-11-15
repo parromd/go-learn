@@ -1,9 +1,8 @@
 package sorts
 
 import (
-	"time"
 	"reflect"
-	"fmt"
+	"time"
 )
 
 func (s *Sort) InsertionSort() (int, time.Duration) {
@@ -16,16 +15,15 @@ func (s *Sort) InsertionSort() (int, time.Duration) {
 	i := 1
 	for i < len(data) {
 		j := i
-		for j > 0 && data[j - 1] > data[j] {
+		for j > 0 && data[j-1] > data[j] {
 			swap(j, j-1)
 			j--
 			comparisons++
 		}
 		i++
 	}
-	elapsed := time.Now().Sub(start)
+	elapsed := time.Since(start)
 
-	fmt.Println(data)
 	s.Comparisons = comparisons
 	return comparisons, elapsed
 }

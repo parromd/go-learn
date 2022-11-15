@@ -1,9 +1,8 @@
 package sorts
 
 import (
-	"time"
 	"reflect"
-	"fmt"
+	"time"
 )
 
 func (s *Sort) SelectionSort() (int, time.Duration) {
@@ -13,7 +12,7 @@ func (s *Sort) SelectionSort() (int, time.Duration) {
 	swap := reflect.Swapper(data)
 
 	start := time.Now()
-	for i := 0; i < len(data) - 1; i++ {
+	for i := 0; i < len(data)-1; i++ {
 		min_idx := i
 		for j := i + 1; j < len(data); j++ {
 			if data[j] < data[min_idx] {
@@ -25,9 +24,8 @@ func (s *Sort) SelectionSort() (int, time.Duration) {
 			swap(i, min_idx)
 		}
 	}
-	elapsed := time.Now().Sub(start)
+	elapsed := time.Since(start)
 
-	fmt.Println(data)
 	s.Comparisons = comparisons
 	return comparisons, elapsed
 }
